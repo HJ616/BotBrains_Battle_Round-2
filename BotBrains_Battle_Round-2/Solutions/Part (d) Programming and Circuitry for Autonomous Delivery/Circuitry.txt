@@ -1,0 +1,5 @@
+Microcontroller: Raspberry Pi or Arduino.
+Motor Driver: L298N or similar.
+LiDAR Sensor: For environment mapping.
+Gyroscope and Accelerometer: MPU6050 or similar.
+Power Supply: Battery pack suitable for motors and microcontroller.

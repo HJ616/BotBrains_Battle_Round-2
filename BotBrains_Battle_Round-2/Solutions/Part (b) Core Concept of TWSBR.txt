@@ -1,0 +1,6 @@
+The core concept of a TWSBR is to maintain balance using dynamic stabilization. This is achieved by continuously adjusting the position of the wheels based on feedback from sensors. Key components include:
+
+Gyroscope: Measures angular velocity.
+Accelerometer: Measures acceleration and tilt.
+Microcontroller: Processes sensor data and controls the motors.
+Motors and Wheels: Actuators that adjust the robot's position.

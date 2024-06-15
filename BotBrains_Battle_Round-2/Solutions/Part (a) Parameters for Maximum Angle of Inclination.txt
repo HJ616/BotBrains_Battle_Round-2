@@ -1,0 +1,10 @@
+Parameters to consider:
+
+Center of Gravity (CoG): The position of the CoG affects the robot's stability.
+Wheelbase Width: The distance between the wheels impacts the balance.
+Height of the Robot: Taller robots are more prone to tipping.
+Weight Distribution: Uniform weight distribution helps in maintaining balance.
+Motor Torque: Sufficient torque is needed to correct imbalances.
+Surface Friction: Affects the grip of the wheels and balance.
+Speed of Movement: Higher speeds can lead to instability.
+Incline Angle: The angle of the surface the robot is operating on.

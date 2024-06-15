@@ -1,0 +1,11 @@
+Programming the Robot:
+
+The robot will be programmed to navigate to the consumer's doorstep, avoiding obstacles and traffic. Key steps include:
+
+Mapping and Localization: Using LiDAR and other sensors to map the environment.
+Path Planning: Implementing algorithms like A* or Dijkstra for optimal pathfinding.
+Motor Control: Using PID controllers for precise motor control to maintain balance.
+Obstacle Avoidance: Dynamic adjustment of the path using real-time sensor data.
+
+
+

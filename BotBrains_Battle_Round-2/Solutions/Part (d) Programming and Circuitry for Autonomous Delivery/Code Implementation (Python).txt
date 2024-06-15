@@ -1,0 +1,77 @@
+import time
+import math
+import RPi.GPIO as GPIO
+
+# Define motor control pins
+LEFT_MOTOR_FORWARD = 17
+LEFT_MOTOR_BACKWARD = 18
+RIGHT_MOTOR_FORWARD = 22
+RIGHT_MOTOR_BACKWARD = 23
+
+# Initialize GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LEFT_MOTOR_FORWARD, GPIO.OUT)
+GPIO.setup(LEFT_MOTOR_BACKWARD, GPIO.OUT)
+GPIO.setup(RIGHT_MOTOR_FORWARD, GPIO.OUT)
+GPIO.setup(RIGHT_MOTOR_BACKWARD, GPIO.OUT)
+
+# Initialize PWM
+left_motor_pwm = GPIO.PWM(LEFT_MOTOR_FORWARD, 100)
+right_motor_pwm = GPIO.PWM(RIGHT_MOTOR_FORWARD, 100)
+left_motor_pwm.start(0)
+right_motor_pwm.start(0)
+
+# Function to set motor speed
+def set_motor_speed(left_speed, right_speed):
+    if left_speed >= 0:
+        GPIO.output(LEFT_MOTOR_FORWARD, True)
+        GPIO.output(LEFT_MOTOR_BACKWARD, False)
+        left_motor_pwm.ChangeDutyCycle(left_speed)
+    else:
+        GPIO.output(LEFT_MOTOR_FORWARD, False)
+        GPIO.output(LEFT_MOTOR_BACKWARD, True)
+        left_motor_pwm.ChangeDutyCycle(-left_speed)
+    
+    if right_speed >= 0:
+        GPIO.output(RIGHT_MOTOR_FORWARD, True)
+        GPIO.output(RIGHT_MOTOR_BACKWARD, False)
+        right_motor_pwm.ChangeDutyCycle(right_speed)
+    else:
+        GPIO.output(RIGHT_MOTOR_FORWARD, False)
+        GPIO.output(RIGHT_MOTOR_BACKWARD, True)
+        right_motor_pwm.ChangeDutyCycle(-right_speed)
+
+# Main control loop
+try:
+    while True:
+        # Read sensors (placeholder for actual sensor reading code)
+        angle = read_gyroscope()
+        distance = read_lidar()
+        
+        # Balance control (simple PID controller example)
+        Kp = 1.0
+        Ki = 0.0
+        Kd = 0.1
+        
+        error = angle
+        integral = 0
+        derivative = 0
+        
+        control_signal = Kp * error + Ki * integral + Kd * derivative
+        
+        # Set motor speeds based on control signal
+        set_motor_speed(control_signal, control_signal)
+        
+        # Path planning and obstacle avoidance logic (placeholder)
+        if distance < threshold:
+            # Avoid obstacle
+            set_motor_speed(-50, 50)
+            time.sleep(1)
+        
+        time.sleep(0.01)
+
+except KeyboardInterrupt:
+    pass
+
+finally:
+    GPIO.cleanup()

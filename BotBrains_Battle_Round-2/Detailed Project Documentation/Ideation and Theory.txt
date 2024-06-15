@@ -1,0 +1,19 @@
+Concepts and Ideas
+Two-Wheeled Self-Balancing Robots (TWSBR):
+
+A TWSBR relies on the principles of dynamic stabilization. This means it uses continuous feedback from its sensors to adjust its position and maintain balance. The main components of a TWSBR include:
+
+Sensors:
+Gyroscope: Measures the robot's angular velocity.
+Accelerometer: Measures linear acceleration and helps in detecting tilt.
+Microcontroller:
+Processes sensor data.
+Executes control algorithms.
+Sends commands to the motors.
+Motors:
+Control the wheels' movement to maintain balance and navigate.
+Battery:
+Provides power to all components.
+Control Algorithms:
+
+The primary control algorithm used in TWSBRs is the PID (Proportional-Integral-Derivative) controller. The PID controller continuously calculates an error value as the difference between a desired setpoint and a measured process variable and applies a correction based on proportional, integral, and derivative terms.
